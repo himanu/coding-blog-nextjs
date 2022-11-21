@@ -8,7 +8,6 @@ import Header from "../../components/header.js"
 import Footer from "../../components/footer.js"
 import HeadMetaData from "../../components/headMetadata"
 import getBlogPostByTitle from "../../api/getBlogPostByTitle.js"
-import post from "../../../rest-api/models/post.js";
 export const getServerSideProps = async(r) => {
   const res = await getBlogPostByTitle(r.query.title);
   return {
