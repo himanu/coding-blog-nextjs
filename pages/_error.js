@@ -4,15 +4,15 @@ import Header from "../components/header.js"
 import Footer from "../components/footer.js"
 import HeadMetaData from "../components/headMetadata"
 
-export default class extends Component {
-  static getInitialProps({ req, res, err }) {
-    const statusCode = res ? res.statusCode : err ? err.statusCode : null
-
-    return {
+export async function getStaticProps({req, res, err}) {
+  const statusCode = res ? res.statusCode : err ? err.statusCode : null
+  return {
+    props: {
       statusCode: statusCode
     }
   }
-
+}
+export default class extends Component {
   render () {
     return (
       <div className="layout-wrapper">
