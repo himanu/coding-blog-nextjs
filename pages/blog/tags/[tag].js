@@ -16,12 +16,11 @@ export async function getStaticPaths() {
         tag: 'css'
       }
     }],
-    fallback: true
+    fallback: false
   }
 }
 export const getStaticProps = async function({ params }) {
   const data = await getBlogPostsByTag(params.tag);
-  console.log("data ", data);
   return {
     props: {
         tag: params.tag,
@@ -32,7 +31,6 @@ export const getStaticProps = async function({ params }) {
 export default class extends Component {
 
   render () {
-    console.log("Hii");
     return (
       <div className="layout-wrapper">
         <HeadMetadata
